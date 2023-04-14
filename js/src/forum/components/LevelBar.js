@@ -13,14 +13,14 @@ export default class LevelBar extends Component {
     
 // Ahora otorga menos experiencia con los mensajes y los hilos
     
-    let expComments = (user.commentCount() - user.discussionCount()) * 1,
-      expDiscussions = user.discussionCount() * 3;
+    let expComments = (user.commentCount() - user.discussionCount()) * 5,
+      expDiscussions = user.discussionCount() * 10;
     
 // Eleva el requisito para subir de nivel    
 
     let expTotal = expComments + expDiscussions,
-      expLevel = Math.floor(expTotal / 500),
-      expPercent = (100 / 500) * (expTotal - expLevel * 500);
+      expLevel = Math.floor(expTotal / 300),
+      expPercent = (100 / 300) * (expTotal - expLevel * 300);
 
     return (
       <Tooltip text={app.translator.trans('ianm-level-ranks.forum.desc.expText', { expTotal })}>
