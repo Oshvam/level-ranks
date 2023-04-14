@@ -11,10 +11,12 @@ export default class LevelBar extends Component {
     const user = this.attrs.user;
     const pointsText = app.forum.attribute('ianm-level-ranks.pointsText') || app.translator.trans('ianm-level-ranks.lib.defaults.level');
     
-// Ahora otorga menos experiencia
+// Ahora otorga menos experiencia con los mensajes y los hilos
     
     let expComments = (user.commentCount() - user.discussionCount()) * 1,
       expDiscussions = user.discussionCount() * 3;
+    
+// Eleva el requisito para subir de nivel    
 
     let expTotal = expComments + expDiscussions,
       expLevel = Math.floor(expTotal / 500),
