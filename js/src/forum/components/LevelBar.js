@@ -10,13 +10,15 @@ export default class LevelBar extends Component {
   view() {
     const user = this.attrs.user;
     const pointsText = app.forum.attribute('ianm-level-ranks.pointsText') || app.translator.trans('ianm-level-ranks.lib.defaults.level');
-
-    let expComments = (user.commentCount() - user.discussionCount()) * 21,
-      expDiscussions = user.discussionCount() * 33;
+    
+// Ahora otorga menos experiencia
+    
+    let expComments = (user.commentCount() - user.discussionCount()) * 1,
+      expDiscussions = user.discussionCount() * 3;
 
     let expTotal = expComments + expDiscussions,
-      expLevel = Math.floor(expTotal / 135),
-      expPercent = (100 / 135) * (expTotal - expLevel * 135);
+      expLevel = Math.floor(expTotal / 500),
+      expPercent = (100 / 500) * (expTotal - expLevel * 500);
 
     return (
       <Tooltip text={app.translator.trans('ianm-level-ranks.forum.desc.expText', { expTotal })}>
